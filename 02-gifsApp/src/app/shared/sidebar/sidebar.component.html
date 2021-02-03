@@ -6,6 +6,7 @@
     <hr class="text-white" />
     <a href="#"
        class="list-group-item list-group-item-action"
-    >DashBoard</a>
+       *ngFor="let item of historial"
+    >{{item | titlecase}}</a>
   </div>
 </div>
