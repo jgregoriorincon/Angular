@@ -8,8 +8,6 @@ import { GifsService } from '../../gifs/services/gifs.service';
   ]
 })
 export class SidebarComponent {
-
-
   public get historial() {
     return this.gifsService.historial;
   }
@@ -19,6 +17,5 @@ export class SidebarComponent {
   buscar( query:string ) {
     console.log(query);
     this.gifsService.buscarGifs(query);
-
   }
 }
