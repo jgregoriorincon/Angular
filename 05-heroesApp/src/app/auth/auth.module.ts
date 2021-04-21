@@ -5,16 +5,10 @@ import { AuthRoutingModule } from './auth-routing.module';
 
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
-
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
-  declarations: [
-    LoginComponent,
-    RegisterComponent
-  ],
-  imports: [
-    CommonModule,
-    AuthRoutingModule
-  ],
+  declarations: [LoginComponent, RegisterComponent],
+  imports: [CommonModule, AuthRoutingModule, MaterialModule],
 })
-export class AuthModule { }
+export class AuthModule {}

@@ -170,10 +170,10 @@
     {
       "superhero": "Robin",
       "publisher": "DC Comics",
-      "alter_ego": "Dick",
+      "alter_ego": "Dick Grayson",
       "first_appearance": "Comics",
-      "characters": "Dick",
-      "alt_img": "",
+      "characters": "Dick Grayson",
+      "alt_img": "https://static.wikia.nocookie.net/batman/images/9/96/1297547-robinwayne_super.jpg",
       "id": "w36xj5s"
     }
   ]

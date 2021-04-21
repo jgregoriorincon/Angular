@@ -1,0 +1,10 @@
+<h1>Borrando heroe</h1>
+<hr />
+<p>Está a punto de borrar a {{ data.superhero }}</p>
+<p>¿Desea continuar?</p>
+
+<div>
+  <button mat-button (click)="delete()" color="warn">Si, borrar</button>
+
+  <button mat-button (click)="close()">No, cancelar</button>
+</div>

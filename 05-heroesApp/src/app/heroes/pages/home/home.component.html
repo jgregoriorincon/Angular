@@ -4,28 +4,20 @@
       <span>Menú</span>
       <span class="spacer"></span>
       <button mat-icon-button (click)="sidenav.toggle()">
-        <mat-icon>
-          close
-        </mat-icon>
+        <mat-icon> close </mat-icon>
       </button>
     </mat-toolbar>
     <mat-nav-list>
-      <a routerLink='./list'
-         mat-list-item
-         (click)="sidenav.toggle()">
-         <mat-icon mat-list-icon>label</mat-icon>
+      <a routerLink="./list" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon mat-list-icon>label</mat-icon>
         <span>Listado heroes</span>
       </a>
-      <a routerLink='./add'
-         mat-list-item
-         (click)="sidenav.toggle()">
-         <mat-icon mat-list-icon>add</mat-icon>
+      <a routerLink="./add" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon mat-list-icon>add</mat-icon>
         <span>Añadir heroes</span>
       </a>
-      <a routerLink='./find'
-         mat-list-item
-         (click)="sidenav.toggle()">
-         <mat-icon mat-list-icon>search</mat-icon>
+      <a routerLink="./find" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon mat-list-icon>search</mat-icon>
         <span>Buscar heroes</span>
       </a>
     </mat-nav-list>
@@ -33,16 +25,12 @@
 
   <mat-toolbar>
     <button mat-icon-button (click)="sidenav.toggle()">
-      <mat-icon>
-        menu
-      </mat-icon>
+      <mat-icon> menu </mat-icon>
     </button>
 
-<span class="spacer"></span>
+    <span class="spacer"></span>
 
-    <button mat-button>
-      Logout
-    </button>
+    <button mat-button (click)="logout()">Logout</button>
   </mat-toolbar>
 
   <div class="container">
