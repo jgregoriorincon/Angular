@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   FormGroup,
   FormBuilder,
@@ -12,7 +12,7 @@ import {
   templateUrl: './dynamic.component.html',
   styles: [],
 })
-export class DynamicComponent implements OnInit {
+export class DynamicComponent {
   personForm: FormGroup = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(3)]],
     favorites: this.fb.array(
@@ -31,8 +31,6 @@ export class DynamicComponent implements OnInit {
   }
 
   constructor(private fb: FormBuilder) {}
-
-  ngOnInit(): void {}
 
   validateControl(control: string) {
     return (
