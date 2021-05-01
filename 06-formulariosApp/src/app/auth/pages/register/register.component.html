@@ -28,7 +28,7 @@
             formControlName="email"
           />
           <span class="form-text text-danger" *ngIf="controlValid('email')">
-            Debe tener formato de correo electrónico
+            {{ emailErrorMsg }}
           </span>
         </div>
       </div>
@@ -76,7 +76,9 @@
       </div>
       <div class="row">
         <div class="col">
-          <button class="btn btn-primary float-end" type="submit">Crear Usuario</button>
+          <button class="btn btn-primary float-end" type="submit" [disabled]="registerForm.pending">
+            Crear Usuario
+          </button>
         </div>
       </div>
     </form>
@@ -84,6 +86,9 @@
 </div>
 
 <h2>Form Valid: {{ registerForm.valid }}</h2>
+<h2>Form Valid: {{ registerForm.status }}</h2>
+<h2>Form Valid: {{ registerForm.pending }}</h2>
+
 <h2>Form Errors: {{ registerForm.errors | json }}</h2>
 
 <h5>Nombre y Apellido</h5>

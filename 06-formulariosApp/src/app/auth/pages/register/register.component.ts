@@ -26,6 +26,18 @@ export class RegisterComponent implements OnInit {
     }
   );
 
+  get emailErrorMsg(): string {
+    const errors = this.registerForm.get('email')?.errors;
+    if (errors?.required) {
+      return 'El email es obligatorio';
+    } else if (errors?.pattern) {
+      return 'El email no tiene el formato correcto';
+    } else if (errors?.emailUsed) {
+      return 'El email ya fue utilizado en el sistema';
+    }
+    return '';
+  }
+
   constructor(
     private fb: FormBuilder,
     private vs: ValidatorService,
@@ -35,7 +47,10 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     this.registerForm.reset({
       nombreApellido: 'Jose Rincon',
-      email: 'prueba@mail.com',
+      email: 'test1@test.com',
+      username: 'jgregorio',
+      password: '123456',
+      confirmPassword: '123456',
     });
   }
 
@@ -44,6 +59,8 @@ export class RegisterComponent implements OnInit {
   }
 
   submitForm() {
+    console.log(this.registerForm.value);
+
     this.registerForm.markAllAsTouched();
   }
 }
