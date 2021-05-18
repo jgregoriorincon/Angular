@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
 
 @Component({
@@ -24,26 +24,32 @@ import * as mapboxgl from 'mapbox-gl';
     `,
   ],
 })
-export class ZoomRangeComponent implements AfterViewInit {
+export class ZoomRangeComponent implements AfterViewInit, OnDestroy {
   @ViewChild('map') divMap!: ElementRef;
   map!: mapboxgl.Map;
   zoomLevel: number = 12;
-  lng!: number;
-  lat!: number;
+  center: [number, number] = [-74.1220891, 4.7164835];
 
   constructor() {}
+
+  ngOnDestroy(): void {
+    this.map.off('zoom', () => {});
+    this.map.off('zoomend', () => {});
+    this.map.off('move', () => {});
+  }
 
   ngAfterViewInit(): void {
     this.map = new mapboxgl.Map({
       container: this.divMap.nativeElement,
       style: 'mapbox://styles/mapbox/streets-v11',
-      center: [-74.1220891, 4.7164835],
+      center: this.center,
       zoom: this.zoomLevel,
     });
 
     this.map.on('zoom', (ev) => {
       this.zoomLevel = this.map.getZoom();
     });
+
     this.map.on('zoomend', (ev) => {
       if (this.map.getZoom() > 18) {
         this.map.zoomTo(18);
@@ -56,8 +62,7 @@ export class ZoomRangeComponent implements AfterViewInit {
     this.map.on('move', (ev) => {
       console.log(ev);
       const center = this.map.getCenter();
-      this.lat = center.lat;
-      this.lng = center.lng;
+      this.center = [center.lng, center.lat];
     });
   }
 
